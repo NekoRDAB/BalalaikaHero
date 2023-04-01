@@ -1,0 +1,20 @@
+class MapTests
+{
+    function void Test()
+    {
+        var String notes;
+        var Map map;
+        var int i;
+        let notes = "01234561350246";
+        let map = Map.New(notes);
+        let i = 0;
+        while (i < 10)
+        {
+            do Output.printString(map.GetNextNotes(7));
+            do Output.println();
+            do map.MoveCurrentNote();
+            let i = i + 1;
+        }
+        return;
+    }
+}

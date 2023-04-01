@@ -1,0 +1,61 @@
+function MapTests.Test 3
+push constant 14
+call String.new 1
+push constant 48
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+push constant 50
+call String.appendChar 2
+push constant 51
+call String.appendChar 2
+push constant 52
+call String.appendChar 2
+push constant 53
+call String.appendChar 2
+push constant 54
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+push constant 51
+call String.appendChar 2
+push constant 53
+call String.appendChar 2
+push constant 48
+call String.appendChar 2
+push constant 50
+call String.appendChar 2
+push constant 52
+call String.appendChar 2
+push constant 54
+call String.appendChar 2
+pop local 0
+push local 0
+call Map.New 1
+pop local 1
+push constant 0
+pop local 2
+label WHILE_EXP0
+push local 2
+push constant 10
+lt
+not
+if-goto WHILE_END0
+push local 1
+push constant 7
+call Map.GetNextNotes 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push local 1
+call Map.MoveCurrentNote 1
+pop temp 0
+push local 2
+push constant 1
+add
+pop local 2
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
