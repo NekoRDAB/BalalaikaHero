@@ -1,4 +1,25 @@
 class Map
 {
-    
+    field String Notes;
+    field int CurrentIndex;
+
+    constructor Map new(String notes)
+    {
+        let Notes = notes;
+        let CurrentIndex = 0;
+        return this;
+    }
+
+    method String GetNextNotes(int count)
+    {
+        var String result;
+        var int i;
+        let result = String.new(0);
+        let i = 0;
+        while (i < count)
+        {
+            do result.appendChar(Notes.charAt(CurrentIndex + i));
+        }
+        return result;
+    }
 }

@@ -1,0 +1,36 @@
+function Map.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+return
+function Map.GetNextNotes 2
+push argument 0
+pop pointer 0
+push constant 0
+call String.new 1
+pop local 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push argument 1
+lt
+not
+if-goto WHILE_END0
+push local 0
+push this 0
+push this 1
+push local 1
+add
+call String.charAt 2
+call String.appendChar 2
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push local 0
+return

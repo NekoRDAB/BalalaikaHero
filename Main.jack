@@ -1,7 +1,8 @@
 class Main
 {
-    method void main()
+    function void main()
     {
         
+        return;
     }
 }
