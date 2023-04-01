@@ -5,9 +5,18 @@ class Map
 
     constructor Map New(String notes)
     {
-        let Notes = notes;
+        var int i;
         let CurrentIndex = 0;
         let Length = notes.length();
+        let Notes = String.new(Length);
+
+        let i = 0;
+        while (i < Length)
+        {
+            do Notes.appendChar(notes.charAt(i));
+            let i = i + 1;
+        }
+
         return this;
     }
 
@@ -28,6 +37,12 @@ class Map
     method void MoveCurrentNote()
     {
         let CurrentIndex = CurrentIndex + 1;
+        return;
+    }
+
+    method void Dispose()
+    {
+        do Memory.deAlloc(this);
         return;
     }
 }

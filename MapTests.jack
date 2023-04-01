@@ -10,11 +10,13 @@ class MapTests
         let i = 0;
         while (i < 10)
         {
-            do Output.printString(map.GetNextNotes(7));
+            do Output.printString(map.GetNextNotes(5));
             do Output.println();
             do map.MoveCurrentNote();
             let i = i + 1;
         }
+        do map.Dispose();
+        do Memory.deAlloc(notes);
         return;
     }
 }
