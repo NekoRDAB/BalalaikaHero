@@ -74,7 +74,7 @@ call String.charAt 2
 push constant 49
 sub
 push local 2
-call View.DrawSingleNote 3
+call View.RedrawNote 3
 pop temp 0
 label IF_FALSE1
 push local 1
@@ -171,7 +171,7 @@ push local 0
 push local 2
 push local 1
 push local 2
-call Screen.drawLine 4
+call Screen.drawRectangle 4
 pop temp 0
 push constant 0
 not
@@ -185,7 +185,7 @@ push local 1
 push local 3
 push constant 1
 add
-call Screen.drawLine 4
+call Screen.drawRectangle 4
 pop temp 0
 push constant 0
 return

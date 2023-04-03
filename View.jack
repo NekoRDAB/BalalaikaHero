@@ -28,7 +28,7 @@ class View
         {
             if (~((notes.charAt(i) - 48) = 0))
             {
-                do DrawSingleNote(notes.charAt(i) - 49, currentOffset);
+                do RedrawNote(notes.charAt(i) - 49, currentOffset);
             }
             let i = i + 1;
             let currentOffset = currentOffset - Height;
@@ -66,9 +66,9 @@ class View
         let y1 = bottomOffset;
         let y2 = y1 + Height;
         do Screen.setColor(false);
-        do Screen.drawLine(x1, y1, x2, y1);
+        do Screen.drawRectangle(x1, y1, x2, y1);
         do Screen.setColor(true);
-        do Screen.drawLine(x1, y2+1, x2, y2+1);
+        do Screen.drawRectangle(x1, y2+1, x2, y2+1);
         return;
     }
 
