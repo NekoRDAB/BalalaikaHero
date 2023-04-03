@@ -171,6 +171,8 @@ push local 0
 push local 2
 push local 1
 push local 2
+push constant 2
+add
 call Screen.drawRectangle 4
 pop temp 0
 push constant 0
@@ -183,7 +185,7 @@ push constant 1
 add
 push local 1
 push local 3
-push constant 1
+push constant 3
 add
 call Screen.drawRectangle 4
 pop temp 0

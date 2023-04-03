@@ -22,7 +22,7 @@ class Game
         {
             let key = GetNoteKeyPressed();
             do view.DrawNotes(TicksCounter);
-            let TicksCounter = TicksCounter - 1;
+            let TicksCounter = TicksCounter - 3;
             if (TicksCounter = 0)
             {
                 let TicksCounter = 30;

@@ -66,9 +66,9 @@ class View
         let y1 = bottomOffset;
         let y2 = y1 + Height;
         do Screen.setColor(false);
-        do Screen.drawRectangle(x1, y1, x2, y1);
+        do Screen.drawRectangle(x1, y1, x2, y1+2);
         do Screen.setColor(true);
-        do Screen.drawRectangle(x1, y2+1, x2, y2+1);
+        do Screen.drawRectangle(x1, y2+1, x2, y2+3);
         return;
     }
 

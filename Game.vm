@@ -33,7 +33,7 @@ push this 1
 call View.DrawNotes 2
 pop temp 0
 push this 1
-push constant 1
+push constant 3
 sub
 pop this 1
 push this 1
