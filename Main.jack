@@ -2,7 +2,11 @@ class Main
 {
     function void main()
     {
-        do MapTests.Test();
+        var Map map;
+        var Game game;
+        let map = Map.New("0132645324");
+        let game = Game.New(map);
+        do game.Run();
         return;
     }
 }

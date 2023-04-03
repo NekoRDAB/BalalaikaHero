@@ -1,0 +1,246 @@
+function View.New 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 80
+pop this 1
+push constant 30
+pop this 2
+push pointer 0
+return
+function View.DrawNotes 3
+push argument 0
+pop pointer 0
+push this 0
+push constant 5
+call Map.GetNextNotes 2
+pop local 0
+push constant 0
+pop local 1
+push constant 256
+push constant 50
+push argument 1
+add
+sub
+pop local 2
+push argument 1
+push constant 50
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push local 0
+push local 0
+call String.length 1
+push constant 1
+sub
+call String.charAt 2
+push local 2
+push this 2
+push local 0
+call String.length 1
+call Math.multiply 2
+push constant 1
+sub
+add
+call View.DrawSingleNote 3
+pop temp 0
+label IF_FALSE0
+label WHILE_EXP0
+push local 1
+push local 0
+call String.length 1
+lt
+not
+if-goto WHILE_END0
+push local 0
+push local 1
+call String.charAt 2
+push constant 48
+sub
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+push local 0
+push local 1
+call String.charAt 2
+push constant 49
+sub
+push local 2
+call View.DrawSingleNote 3
+pop temp 0
+label IF_FALSE1
+push local 1
+push constant 1
+add
+pop local 1
+push local 2
+push this 2
+sub
+pop local 2
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function View.DrawSingleNote 4
+push argument 0
+pop pointer 0
+push argument 1
+push this 1
+call Math.multiply 2
+pop local 0
+push local 0
+push this 1
+add
+pop local 1
+push argument 2
+pop local 2
+push local 2
+push this 2
+add
+pop local 3
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 2
+push local 1
+push local 3
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 2
+push constant 1
+add
+push local 1
+push local 3
+push constant 1
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function View.ClearBottomNote 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 0
+push constant 256
+push constant 50
+sub
+push constant 511
+push constant 255
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function View.RedrawNote 4
+push argument 0
+pop pointer 0
+push argument 1
+push this 1
+call Math.multiply 2
+pop local 0
+push local 0
+push this 1
+add
+pop local 1
+push argument 2
+pop local 2
+push local 2
+push this 2
+add
+pop local 3
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 2
+push local 1
+push local 2
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 3
+push constant 1
+add
+push local 1
+push local 3
+push constant 1
+add
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return
+function View.DrawFirstNotes 3
+push argument 0
+pop pointer 0
+push this 0
+push constant 5
+call Map.GetNextNotes 2
+pop local 0
+push constant 0
+pop local 1
+push constant 256
+push constant 50
+push argument 1
+add
+sub
+pop local 2
+label WHILE_EXP0
+push local 1
+push local 0
+call String.length 1
+lt
+not
+if-goto WHILE_END0
+push local 0
+push local 1
+call String.charAt 2
+push constant 48
+sub
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push local 0
+push local 1
+call String.charAt 2
+push constant 49
+sub
+push local 2
+call View.DrawSingleNote 3
+pop temp 0
+label IF_FALSE0
+push local 1
+push constant 1
+add
+pop local 1
+push local 2
+push this 2
+sub
+pop local 2
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

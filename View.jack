@@ -1,0 +1,94 @@
+class View
+{
+    field Map map;
+    field int Width, Height;
+    constructor View New(Map mapArg)
+    {
+        let map = mapArg;
+        let Width = 80;
+        let Height = 30;
+        return this;
+    }
+
+
+    method void DrawNotes(int ticksCounter)
+    {
+        var String notes;
+        var int i, currentOffset;
+        let notes = map.GetNextNotes(5);
+        let i = 0;
+        let currentOffset = 256 - (50 + ticksCounter);
+
+        if (ticksCounter = 50)
+        {
+            do DrawSingleNote(notes.charAt(notes.length() - 1), currentOffset + (Height * notes.length() - 1));
+        }
+
+        while (i < notes.length())
+        {
+            if (~((notes.charAt(i) - 48) = 0))
+            {
+                do DrawSingleNote(notes.charAt(i) - 49, currentOffset);
+            }
+            let i = i + 1;
+            let currentOffset = currentOffset - Height;
+        }
+        return;
+    }
+
+
+    method void DrawSingleNote(int note, int bottomOffset)
+    {
+        var int x1, x2, y1, y2;
+        let x1 = note * Width;
+        let x2 = x1 + Width;
+        let y1 = bottomOffset;
+        let y2 = y1 + Height;
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x1, y1, x2, y2);
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x1, y1+1, x2, y2+1);
+        return;
+    }
+
+    method void ClearBottomNote()
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 256 - 50, 511, 255);
+        return;
+    }
+
+    method void RedrawNote(int note, int bottomOffset)
+    {
+        var int x1, x2, y1, y2;
+        let x1 = note * Width;
+        let x2 = x1 + Width;
+        let y1 = bottomOffset;
+        let y2 = y1 + Height;
+        do Screen.setColor(false);
+        do Screen.drawLine(x1, y1, x2, y1);
+        do Screen.setColor(true);
+        do Screen.drawLine(x1, y2+1, x2, y2+1);
+        return;
+    }
+
+    method void DrawFirstNotes(int ticksCounter)
+    {
+        var String notes;
+        var int i, currentOffset;
+        let notes = map.GetNextNotes(5);
+        let i = 0;
+        let currentOffset = 256 - (50 + ticksCounter);
+
+        while (i < notes.length())
+        {
+            if (~((notes.charAt(i) - 48) = 0))
+            {
+                do DrawSingleNote(notes.charAt(i) - 49, currentOffset);
+            }
+            let i = i + 1;
+            let currentOffset = currentOffset - Height;
+        }
+        return;
+    }
+}
