@@ -71,6 +71,9 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push local 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 1
 return
 label IF_FALSE0
@@ -82,6 +85,9 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
+push local 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 2
 return
 label IF_FALSE1
@@ -93,6 +99,9 @@ eq
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
+push local 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 3
 return
 label IF_FALSE2
@@ -104,6 +113,9 @@ eq
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
+push local 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 4
 return
 label IF_FALSE3
@@ -115,6 +127,9 @@ eq
 if-goto IF_TRUE4
 goto IF_FALSE4
 label IF_TRUE4
+push local 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 5
 return
 label IF_FALSE4
@@ -126,6 +141,9 @@ eq
 if-goto IF_TRUE5
 goto IF_FALSE5
 label IF_TRUE5
+push local 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 6
 return
 label IF_FALSE5

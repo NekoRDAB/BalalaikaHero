@@ -33,6 +33,8 @@ class View
             let i = i + 1;
             let currentOffset = currentOffset - Height;
         }
+
+        do notes.dispose();
         return;
     }
 
@@ -89,6 +91,8 @@ class View
             let i = i + 1;
             let currentOffset = currentOffset - Height;
         }
+
+        do notes.dispose();
         return;
     }
 }

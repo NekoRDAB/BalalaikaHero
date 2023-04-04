@@ -87,6 +87,9 @@ sub
 pop local 2
 goto WHILE_EXP0
 label WHILE_END0
+push local 0
+call String.dispose 1
+pop temp 0
 push constant 0
 return
 function View.DrawSingleNote 4
@@ -244,5 +247,8 @@ sub
 pop local 2
 goto WHILE_EXP0
 label WHILE_END0
+push local 0
+call String.dispose 1
+pop temp 0
 push constant 0
 return

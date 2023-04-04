@@ -39,12 +39,12 @@ class Controller
     {
         var int key;
         let key = Keyboard.keyPressed();
-        if (key = (65+18)) { return 1; } // S
-        if (key = (65+3))  { return 2; } // D
-        if (key = (65+5))  { return 3; } // F
-        if (key = (65+9))  { return 4; } // J
-        if (key = (65+10)) { return 5; } // K
-        if (key = (65+11)) { return 6; } // L
+        if (key = (65+18)) { do Memory.deAlloc(key); return 1; } // S
+        if (key = (65+3))  { do Memory.deAlloc(key); return 2; } // D
+        if (key = (65+5))  { do Memory.deAlloc(key); return 3; } // F
+        if (key = (65+9))  { do Memory.deAlloc(key); return 4; } // J
+        if (key = (65+10)) { do Memory.deAlloc(key); return 5; } // K
+        if (key = (65+11)) { do Memory.deAlloc(key); return 6; } // L
         return 0;
     }
 }
