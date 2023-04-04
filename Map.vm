@@ -77,6 +77,15 @@ add
 pop this 2
 push constant 0
 return
+function Map.GetCurrentNote 0
+push argument 0
+pop pointer 0
+push this 0
+push this 2
+call String.charAt 2
+push constant 48
+sub
+return
 function Map.Dispose 0
 push argument 0
 pop pointer 0

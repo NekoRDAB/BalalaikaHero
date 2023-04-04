@@ -1,0 +1,21 @@
+class Scoring
+{
+    field int TotalScore;
+    constructor Scoring New()
+    {
+        let TotalScore = 0;
+        return this;
+    }
+
+    method void CorrectTap()
+    {
+        let TotalScore = TotalScore + 50;
+        return;
+    }
+
+    method void IncorrectTap()
+    {
+        let TotalScore = TotalScore - 100;
+        return;
+    }
+}

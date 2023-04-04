@@ -2,25 +2,24 @@ class Game
 {
     field Map map;
     field int TicksCounter;
-    field boolean ScoreEarned;
     field View view;
+    field Controller controller;
     constructor Game New(Map mapArg)
     {
         let map = mapArg;
         let TicksCounter = 30;
-        let ScoreEarned = false;
         let view = View.New(mapArg);
+        let controller = Controller.New(mapArg);
         return this;
     }
 
 
     method void Run()
     {
-        var int key;
         do view.DrawFirstNotes(TicksCounter);
         while (true)
         {
-            let key = GetNoteKeyPressed();
+            do controller.CheckIfNotePressed();
             do view.DrawNotes(TicksCounter);
             let TicksCounter = TicksCounter - 3;
             if (TicksCounter = 0)
@@ -31,19 +30,5 @@ class Game
             }
         }
         return;
-    }
-
-
-    method int GetNoteKeyPressed()
-    {
-        var int key;
-        let key = Keyboard.keyPressed();
-        if (key = (65+18)) { return 1; } // S
-        if (key = (65+3))  { return 2; } // D
-        if (key = (65+5))  { return 3; } // F
-        if (key = (65+9))  { return 4; } // J
-        if (key = (65+10)) { return 5; } // K
-        if (key = (65+11)) { return 6; } // L
-        return 0;
     }
 }
