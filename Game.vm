@@ -1,23 +1,26 @@
 function Game.New 0
-push constant 4
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push argument 0
 pop this 0
 push constant 30
 pop this 1
-push argument 0
-call View.New 1
+push argument 1
 pop this 2
 push argument 0
-call Controller.New 1
+push this 2
+call View.New 2
 pop this 3
+push argument 0
+call Controller.New 1
+pop this 4
 push pointer 0
 return
 function Game.Run 0
 push argument 0
 pop pointer 0
-push this 2
+push this 3
 push this 1
 call View.DrawFirstNotes 2
 pop temp 0
@@ -26,15 +29,15 @@ push constant 0
 not
 not
 if-goto WHILE_END0
-push this 3
+push this 4
 call Controller.CheckIfNotePressed 1
 pop temp 0
-push this 2
+push this 3
 push this 1
 call View.DrawNotes 2
 pop temp 0
 push this 1
-push constant 3
+push this 2
 sub
 pop this 1
 push this 1
@@ -48,7 +51,7 @@ pop this 1
 push this 0
 call Map.MoveCurrentNote 1
 pop temp 0
-push this 2
+push this 3
 call View.ClearBottomNote 1
 pop temp 0
 label IF_FALSE0

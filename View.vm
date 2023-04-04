@@ -1,5 +1,5 @@
 function View.New 0
-push constant 3
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -8,6 +8,10 @@ push constant 80
 pop this 1
 push constant 30
 pop this 2
+push argument 1
+pop this 3
+push constant 50
+pop this 4
 push pointer 0
 return
 function View.DrawNotes 3
@@ -20,8 +24,10 @@ pop local 0
 push constant 0
 pop local 1
 push constant 256
-push constant 50
+push this 4
 push argument 1
+add
+push this 2
 add
 sub
 pop local 2
@@ -141,11 +147,17 @@ push constant 0
 call Screen.setColor 1
 pop temp 0
 push constant 0
-push constant 256
-push constant 50
+push constant 255
+push this 4
+sub
+push this 2
 sub
 push constant 511
 push constant 255
+push this 4
+sub
+push this 2
+add
 call Screen.drawRectangle 4
 pop temp 0
 push constant 0
@@ -174,8 +186,10 @@ push local 0
 push local 2
 push local 1
 push local 2
-push constant 2
+push this 3
 add
+push constant 1
+sub
 call Screen.drawRectangle 4
 pop temp 0
 push constant 0
@@ -188,7 +202,7 @@ push constant 1
 add
 push local 1
 push local 3
-push constant 3
+push this 3
 add
 call Screen.drawRectangle 4
 pop temp 0
@@ -204,8 +218,10 @@ pop local 0
 push constant 0
 pop local 1
 push constant 256
-push constant 50
+push this 4
 push argument 1
+add
+push this 2
 add
 sub
 pop local 2

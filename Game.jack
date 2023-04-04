@@ -1,14 +1,15 @@
 class Game
 {
     field Map map;
-    field int TicksCounter;
+    field int TicksCounter, GameSpeed;
     field View view;
     field Controller controller;
-    constructor Game New(Map mapArg)
+    constructor Game New(Map mapArg, int gameSpeedArg)
     {
         let map = mapArg;
         let TicksCounter = 30;
-        let view = View.New(mapArg);
+        let GameSpeed = gameSpeedArg;
+        let view = View.New(mapArg, GameSpeed);
         let controller = Controller.New(mapArg);
         return this;
     }
@@ -21,7 +22,7 @@ class Game
         {
             do controller.CheckIfNotePressed();
             do view.DrawNotes(TicksCounter);
-            let TicksCounter = TicksCounter - 3;
+            let TicksCounter = TicksCounter - GameSpeed;
             if (TicksCounter = 0)
             {
                 let TicksCounter = 30;

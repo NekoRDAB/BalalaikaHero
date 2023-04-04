@@ -1,12 +1,14 @@
 class View
 {
     field Map map;
-    field int Width, Height;
-    constructor View New(Map mapArg)
+    field int Width, Height, GameSpeed, UIoffset;
+    constructor View New(Map mapArg, int gameSpeedArg)
     {
         let map = mapArg;
         let Width = 80;
         let Height = 30;
+        let GameSpeed = gameSpeedArg;
+        let UIoffset = 50;
         return this;
     }
 
@@ -17,7 +19,7 @@ class View
         var int i, currentOffset;
         let notes = map.GetNextNotes(5);
         let i = 0;
-        let currentOffset = 256 - (50 + ticksCounter);
+        let currentOffset = 256 - (UIoffset + ticksCounter + Height);
 
         if (ticksCounter = 50)
         {
@@ -56,7 +58,7 @@ class View
     method void ClearBottomNote()
     {
         do Screen.setColor(false);
-        do Screen.drawRectangle(0, 256 - 50, 511, 255);
+        do Screen.drawRectangle(0, 255 - UIoffset - Height, 511, 255 - UIoffset + Height);
         return;
     }
 
@@ -68,9 +70,9 @@ class View
         let y1 = bottomOffset;
         let y2 = y1 + Height;
         do Screen.setColor(false);
-        do Screen.drawRectangle(x1, y1, x2, y1+2);
+        do Screen.drawRectangle(x1, y1, x2, y1+GameSpeed - 1);
         do Screen.setColor(true);
-        do Screen.drawRectangle(x1, y2+1, x2, y2+3);
+        do Screen.drawRectangle(x1, y2+1, x2, y2+GameSpeed);
         return;
     }
 
@@ -80,7 +82,7 @@ class View
         var int i, currentOffset;
         let notes = map.GetNextNotes(5);
         let i = 0;
-        let currentOffset = 256 - (50 + ticksCounter);
+        let currentOffset = 256 - (UIoffset + ticksCounter + Height);
 
         while (i < notes.length())
         {
