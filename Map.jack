@@ -40,6 +40,11 @@ class Map
         return;
     }
 
+    method int GetCurrentNote()
+    {
+        return Notes.charAt(CurrentIndex) - 48;
+    }
+
     method void Dispose()
     {
         do Memory.deAlloc(this);

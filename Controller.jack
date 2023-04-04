@@ -1,0 +1,50 @@
+class Controller
+{
+    field Map map;
+    field boolean PointEarned;
+    field Scoring scoring;
+    constructor Controller New(Map mapArg)
+    {
+        let map = mapArg;
+        let PointEarned = false;
+        let scoring = Scoring.New();
+        return this;
+    }
+
+    method void CheckIfNotePressed()
+    {
+        var int key;
+        var int currentNote;
+        let key = GetNoteKeyPressed();
+        let currentNote = map.GetCurrentNote();
+        if (key > 0)
+        {
+            if (key = currentNote) 
+            { 
+                do scoring.CorrectTap(); 
+                let PointEarned = true;
+            }
+            else 
+            { do scoring.IncorrectTap(); }
+        }
+        else
+        {
+            if (currentNote > 0)
+            { do scoring.IncorrectTap(); }
+        }
+        return;
+    }
+
+    method int GetNoteKeyPressed()
+    {
+        var int key;
+        let key = Keyboard.keyPressed();
+        if (key = (65+18)) { do Memory.deAlloc(key); return 1; } // S
+        if (key = (65+3))  { do Memory.deAlloc(key); return 2; } // D
+        if (key = (65+5))  { do Memory.deAlloc(key); return 3; } // F
+        if (key = (65+9))  { do Memory.deAlloc(key); return 4; } // J
+        if (key = (65+10)) { do Memory.deAlloc(key); return 5; } // K
+        if (key = (65+11)) { do Memory.deAlloc(key); return 6; } // L
+        return 0;
+    }
+}

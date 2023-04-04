@@ -4,8 +4,8 @@ class Main
     {
         var Map map;
         var Game game;
-        let map = Map.New("0132645324");
-        let game = Game.New(map);
+        let map = Map.New("00000132645324245613050230564603050460304350456002304505646040346");
+        let game = Game.New(map, 5);
         do game.Run();
         return;
     }
