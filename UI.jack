@@ -48,4 +48,48 @@ class UI
         }
         return;
     }
+
+    method void DrawKeyPressing(int number, boolean isOn)
+    {
+        var int x1, x2, y1, y2;
+        do Screen.setColor(isOn);
+        let x1 = number * Width;
+        let y1 = 255 - UIoffset;
+        let x2 = x1 + Width;
+        let y2 = 255;
+
+        let x1 = x1 + 20;
+        let x2 = x2 - 20;
+        let y1 = y1 + 15;
+        let y2 = y2 - 15;
+        do Screen.drawRectangle(x1, y1, x2, y2);
+        return;
+    }
+
+    method void DrawKeyOn(int number)
+    {
+        do DrawKeyPressing(number - 1, true);
+        return;
+    }
+
+    method void UpdateAllKeys()
+    {
+        var int i;
+        let i = 0;
+        while (i < 6)
+        {
+            do DrawKeyPressing(i, false);
+            let i = i + 1;
+        }
+        return;
+    }
+
+    method void UpdateTotalScore(int score)
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 32);
+        do Output.moveCursor(0, 0);
+        do Output.printInt(score);
+        return;
+    }
 }

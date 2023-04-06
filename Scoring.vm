@@ -23,10 +23,6 @@ return
 function Scoring.IncorrectTap 0
 push argument 0
 pop pointer 0
-push this 0
-push constant 100
-sub
-pop this 0
 push constant 0
 return
 function Scoring.UpdateNoteSuccess 0
@@ -35,4 +31,9 @@ pop pointer 0
 push constant 0
 pop this 1
 push constant 0
+return
+function Scoring.GetTotalScore 0
+push argument 0
+pop pointer 0
+push this 0
 return

@@ -28,6 +28,10 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push this 2
+push local 0
+call UI.DrawKeyOn 2
+pop temp 0
 push local 0
 push local 1
 eq
@@ -43,8 +47,16 @@ push this 1
 call Scoring.IncorrectTap 1
 pop temp 0
 label IF_END1
+push this 2
+push this 1
+call Scoring.GetTotalScore 1
+call UI.UpdateTotalScore 2
+pop temp 0
 goto IF_END0
 label IF_FALSE0
+push this 2
+call UI.UpdateAllKeys 1
+pop temp 0
 push local 1
 push constant 0
 gt

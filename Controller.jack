@@ -20,15 +20,16 @@ class Controller
         let currentNote = map.GetCurrentNote();
         if (key > 0)
         {
+            do ui.DrawKeyOn(key);
             if (key = currentNote) 
             { 
                 do scoring.CorrectTap();
             }
-            else 
-            { do scoring.IncorrectTap(); }
+            do ui.UpdateTotalScore(scoring.GetTotalScore());
         }
         else
         {
+            do ui.UpdateAllKeys();
             if (currentNote > 0)
             { do scoring.IncorrectTap(); }
         }

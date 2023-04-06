@@ -16,15 +16,14 @@ class Scoring
         return;
     }
 
-    method void IncorrectTap()
-    {
-        let TotalScore = TotalScore - 100;
-        return;
-    }
-
     method void UpdateNoteSuccess()
     {
         let NoteSuccess = false;
         return;
+    }
+
+    method int GetTotalScore()
+    {
+        return TotalScore;
     }
 }
