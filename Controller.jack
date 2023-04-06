@@ -8,6 +8,7 @@ class Controller
         let map = mapArg;
         let scoring = scoringArg;
         let ui = UI.New();
+        do ui.UpdateTotalScore(scoring.GetTotalScore());
         do ui.DrawKeyboard();
         return this;
     }

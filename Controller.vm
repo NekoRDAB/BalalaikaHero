@@ -9,6 +9,11 @@ pop this 1
 call UI.New 0
 pop this 2
 push this 2
+push this 1
+call Scoring.GetTotalScore 1
+call UI.UpdateTotalScore 2
+pop temp 0
+push this 2
 call UI.DrawKeyboard 1
 pop temp 0
 push pointer 0
