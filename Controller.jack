@@ -2,10 +2,9 @@ class Controller
 {
     field Map map;
     field Scoring scoring;
-    constructor Controller New(Map mapArg, scoringArg)
+    constructor Controller New(Map mapArg, Scoring scoringArg)
     {
         let map = mapArg;
-        let PointEarned = false;
         let scoring = scoringArg;
         return this;
     }

@@ -134,7 +134,7 @@ call String.appendChar 2
 call Map.New 1
 pop local 0
 push local 0
-push constant 10
+push constant 5
 call Game.New 2
 pop local 1
 push local 1

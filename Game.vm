@@ -1,5 +1,5 @@
 function Game.New 0
-push constant 5
+push constant 6
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -12,8 +12,11 @@ push argument 0
 push this 2
 call View.New 2
 pop this 3
+call Scoring.New 0
+pop this 5
 push argument 0
-call Controller.New 1
+push this 5
+call Controller.New 2
 pop this 4
 push pointer 0
 return
@@ -53,6 +56,9 @@ call Map.MoveCurrentNote 1
 pop temp 0
 push this 3
 call View.ClearBottomNote 1
+pop temp 0
+push this 5
+call Scoring.UpdateNoteSuccess 1
 pop temp 0
 label IF_FALSE0
 goto WHILE_EXP0
