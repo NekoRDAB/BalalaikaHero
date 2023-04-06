@@ -20,11 +20,6 @@ not
 pop this 1
 push constant 0
 return
-function Scoring.IncorrectTap 0
-push argument 0
-pop pointer 0
-push constant 0
-return
 function Scoring.UpdateNoteSuccess 0
 push argument 0
 pop pointer 0

@@ -30,8 +30,6 @@ class Controller
         else
         {
             do ui.UpdateAllKeys();
-            if (currentNote > 0)
-            { do scoring.IncorrectTap(); }
         }
         return;
     }
