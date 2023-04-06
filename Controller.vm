@@ -41,7 +41,12 @@ label IF_TRUE1
 push this 1
 call Scoring.CorrectTap 1
 pop temp 0
+goto IF_END1
 label IF_FALSE1
+push this 1
+call Scoring.IncorrectTap 1
+pop temp 0
+label IF_END1
 push this 2
 push this 1
 call Scoring.GetTotalScore 1
@@ -60,6 +65,11 @@ goto IF_FALSE2
 label IF_TRUE2
 push this 1
 call Scoring.IncorrectTap 1
+pop temp 0
+push this 2
+push this 1
+call Scoring.GetTotalScore 1
+call UI.UpdateTotalScore 2
 pop temp 0
 label IF_FALSE2
 label IF_END0

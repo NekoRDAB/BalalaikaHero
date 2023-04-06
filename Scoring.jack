@@ -1,24 +1,35 @@
 class Scoring
 {
     field int TotalScore;
-    field boolean NoteSuccess;
+    field boolean NoteSuccess, NoteFail;
     constructor Scoring New()
     {
         let TotalScore = 0;
         let NoteSuccess = false;
+        let NoteFail = false;
         return this;
     }
 
     method void CorrectTap()
     {
-        let TotalScore = TotalScore + 50;
+        if (NoteSuccess) { return; }
+        let TotalScore = TotalScore + 25;
         let NoteSuccess = true;
+        return;
+    }
+
+    method void IncorrectTap()
+    {
+        if (NoteFail) { return; }
+        let TotalScore = TotalScore - 5;
+        let NoteFail = true;
         return;
     }
 
     method void UpdateNoteSuccess()
     {
         let NoteSuccess = false;
+        let NoteFail = false;
         return;
     }
 

@@ -87,7 +87,7 @@ class UI
     method void UpdateTotalScore(int score)
     {
         do Screen.setColor(false);
-        do Screen.drawRectangle(0, 0, 511, 32);
+        do Screen.drawRectangle(0, 0, 200, 10);
         do Output.moveCursor(0, 0);
         do Output.printInt(score);
         return;
