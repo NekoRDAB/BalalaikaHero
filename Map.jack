@@ -50,4 +50,9 @@ class Map
         do Memory.deAlloc(this);
         return;
     }
+
+    method boolean IsOver()
+    {
+        return CurrentIndex = Length;
+    }
 }

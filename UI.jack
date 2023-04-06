@@ -1,0 +1,51 @@
+class UI
+{
+    field int UIoffset, Width, Height;
+
+    constructor UI New()
+    {
+        let UIoffset = 50;
+        let Width = 80;
+        let Height = 30;
+        return this;
+    }
+
+    method void DrawKeyboard()
+    {
+        var int i;
+        let i = 0;
+        while (i < 6)
+        {
+            do DrawInactiveKey(i);
+            let i = i+1;
+        }
+        return;
+    }
+
+    method void DrawInactiveKey(int number)
+    {
+        var int i, x1, x2, y1, y2;
+        let x1 = number * Width;
+        let y1 = 255 - UIoffset;
+        let x2 = x1 + Width;
+        let y2 = 255;
+        do Screen.setColor(true);
+
+        let i = x1;
+        while (i < (x2 + 1))
+        {
+            do Screen.drawPixel(i, y1);
+            do Screen.drawPixel(i, y2);
+            let i = i+1;
+        }
+
+        let i = y1;
+        while (i < (y2 + 1))
+        {
+            do Screen.drawPixel(x1, i);
+            do Screen.drawPixel(x2, i);
+            let i = i+1;
+        }
+        return;
+    }
+}

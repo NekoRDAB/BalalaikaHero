@@ -28,7 +28,8 @@ push this 1
 call View.DrawFirstNotes 2
 pop temp 0
 label WHILE_EXP0
-push constant 0
+push this 0
+call Map.IsOver 1
 not
 not
 if-goto WHILE_END0
@@ -55,7 +56,7 @@ push this 0
 call Map.MoveCurrentNote 1
 pop temp 0
 push this 3
-call View.ClearBottomNote 1
+call View.ClearBottomNotes 1
 pop temp 0
 push this 5
 call Scoring.UpdateNoteSuccess 1

@@ -55,10 +55,10 @@ class View
         return;
     }
 
-    method void ClearBottomNote()
+    method void ClearBottomNotes()
     {
         do Screen.setColor(false);
-        do Screen.drawRectangle(0, 255 - UIoffset - Height, 511, 255 - UIoffset + Height);
+        do Screen.drawRectangle(0, 255 - UIoffset - Height, 511, 255 - UIoffset - 1);
         return;
     }
 

@@ -20,7 +20,7 @@ class Game
     method void Run()
     {
         do view.DrawFirstNotes(TicksCounter);
-        while (true)
+        while (~(map.IsOver()))
         {
             do controller.CheckIfNotePressed();
             do view.DrawNotes(TicksCounter);
@@ -29,7 +29,7 @@ class Game
             {
                 let TicksCounter = 30;
                 do map.MoveCurrentNote();
-                do view.ClearBottomNote();
+                do view.ClearBottomNotes();
                 do scoring.UpdateNoteSuccess();
             }
         }
