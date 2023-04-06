@@ -21,7 +21,7 @@ push constant 0
 return
 label IF_FALSE0
 push this 0
-push constant 20
+push constant 25
 add
 pop this 0
 push constant 0

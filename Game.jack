@@ -33,6 +33,7 @@ class Game
                 do scoring.UpdateNoteSuccess();
             }
         }
+        do map.Dispose();
         return;
     }
 }
