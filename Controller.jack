@@ -1,13 +1,12 @@
 class Controller
 {
     field Map map;
-    field boolean PointEarned;
     field Scoring scoring;
-    constructor Controller New(Map mapArg)
+    constructor Controller New(Map mapArg, scoringArg)
     {
         let map = mapArg;
         let PointEarned = false;
-        let scoring = Scoring.New();
+        let scoring = scoringArg;
         return this;
     }
 
@@ -21,8 +20,7 @@ class Controller
         {
             if (key = currentNote) 
             { 
-                do scoring.CorrectTap(); 
-                let PointEarned = true;
+                do scoring.CorrectTap();
             }
             else 
             { do scoring.IncorrectTap(); }

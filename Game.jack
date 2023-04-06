@@ -4,13 +4,15 @@ class Game
     field int TicksCounter, GameSpeed;
     field View view;
     field Controller controller;
+    field Scoring scoring;
     constructor Game New(Map mapArg, int gameSpeedArg)
     {
         let map = mapArg;
         let TicksCounter = 30;
         let GameSpeed = gameSpeedArg;
         let view = View.New(mapArg, GameSpeed);
-        let controller = Controller.New(mapArg);
+        let scoring = Scoring.New();
+        let controller = Controller.New(mapArg, scoring);
         return this;
     }
 
@@ -28,6 +30,7 @@ class Game
                 let TicksCounter = 30;
                 do map.MoveCurrentNote();
                 do view.ClearBottomNote();
+                do scoring.UpdateNoteSuccess();
             }
         }
         return;
