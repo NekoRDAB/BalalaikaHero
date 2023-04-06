@@ -193,7 +193,7 @@ call Screen.setColor 1
 pop temp 0
 push constant 0
 push constant 0
-push constant 200
+push constant 100
 push constant 10
 call Screen.drawRectangle 4
 pop temp 0
